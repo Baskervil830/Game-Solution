@@ -13,10 +13,47 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы ресурсов\Texture">
+      <UniqueIdentifier>{5241ebfc-dc0e-40d4-b0cc-6083c820bd3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tile.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Texture\Mountains.png">
+      <Filter>Файлы ресурсов\Texture</Filter>
+    </Image>
+    <Image Include="Texture\Stone.png">
+      <Filter>Файлы ресурсов\Texture</Filter>
+    </Image>
+    <Image Include="Texture\Water.png">
+      <Filter>Файлы ресурсов\Texture</Filter>
+    </Image>
+    <Image Include="Texture\Dirt.png">
+      <Filter>Файлы ресурсов\Texture</Filter>
+    </Image>
+    <Image Include="Texture\Empty.png">
+      <Filter>Файлы ресурсов\Texture</Filter>
+    </Image>
+    <Image Include="Texture\Grass.png">
+      <Filter>Файлы ресурсов\Texture</Filter>
+    </Image>
   </ItemGroup>
 </Project>

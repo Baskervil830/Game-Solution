@@ -2,12 +2,14 @@
 
 
 #include <SFML/Graphics.hpp>
+#include "Map.h"
 
 
 int main()
 {
-	sf::RenderWindow window (sf::VideoMode(640, 640), "MainWindow");
+	sf::RenderWindow window (sf::VideoMode(1000, 500), "MainWindow");
 
+	Map map(10, 5);
 
 	while (window.isOpen())
 	{
@@ -22,6 +24,7 @@ int main()
 
 
 		window.clear();
+		map.draw(&window);
 		//window.draw();
 		window.display();
 	};
