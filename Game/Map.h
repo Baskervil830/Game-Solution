@@ -8,26 +8,37 @@
 
 
 #include "Tile.h"
+#include <map>
+#include "Manipulator.h"
+#include <string>
+using namespace sf;
 
+
+enum Error ;
 
 class Map
 {
-	Tile* tiles;
+	Tile* tiles_mesh;
 	int wigth;
 	int height;
+
+	void eventError();
 
 public:
 	Map();
 	Map(int w, int h);
 
 	void create(int w, int h);
-	void draw(sf::RenderWindow* win);
+	void draw(RenderWindow* win);
 	void clear();
 
-	Tile* getTile(sf::Vector2i pos);
+	Tile& getTile(Vector2i pos);
+
+	Tile& selectTile (Vector2f cor);
+	Tile& selectGroupTile();
+
 
 	~Map();
-
 };
 
 

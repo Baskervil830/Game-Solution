@@ -1,5 +1,9 @@
 //Tile.h
-//Класс представляющий игровой тайл из которых состоит карта карту
+// Класс представляющий игровой тайл из которых состоит карта
+// Класс работает с двумя типами координат.
+// Вектор Vector2i представляет позицию в сетке тайлов
+// Класс Vector2f представляет координаты окна (в пискелях)
+//
 
 
 #ifndef TILE_H
@@ -7,30 +11,30 @@
 
 
 
-
-
-
 #include <SFML/Graphics.hpp>
 #include <string>
 
+
+using namespace sf;
+
+
 class Tile
 {
-	sf::Texture l1_tileTexture;
-	sf::Sprite l1_tileSprite;
+	Texture l1_tileTexture;
+	Sprite l1_tileSprite;
 
-	sf::Vector2i pos;
-	sf::Vector2i centre;
+	Vector2i pos, centre;
 
 	struct Size
 	{
-		int wigth;
-		int height;
+		int wigth, height;
 	}size;
 
 
 	struct TileParam
 	{
 		std::string terrain;
+		int tile_num;
 
 	}param;
 	
@@ -38,28 +42,41 @@ class Tile
 	bool setParam();
 
 public:
+	// Конструктор по умолчанию
 	Tile();
-	Tile(int i, int e, std::string = "Empty", int w = 100, int h = 100);
 
-	bool create(int i, int e, std::string = "Empty", int w = 100, int h = 100);
+
+	// Конструктор для отладки, после удалить
+	Tile(int i, int e, std::string terr, int w, int h);
+
+	/* Создает базовый тайл
+	- Параметр i - индекс элемента в массиве тайлов
+	- Парметр е - количество элементов в ряду
+	- Параметр terr - название файла с загружаемой текстурой. Он должен иметь путь /Texture и формат .png
+	- Параметры w, h - соответствуют ширине и высоте загружаемой текстуры
+	*/
+	bool create(int i, int e, std::string terr = "Empty", int w = 100, int h = 100);
 	void clear();
 
-	
-	bool setTerrain(std::string terr);
 	//Задает тип местности
+	bool setTerrain(std::string terr);
 
-	//////////////////////////////////////////////////////
+
+
 	//Возвращает тип местности тайла
 	std::string getTerrain();
-	//Возвращает позицию тайла
+
+	//Возвращает позицию тайла в сетке тайлов
 	sf::Vector2i getPosition();
 
 	//Возвращает параметры тайла
-	const TileParam* getParam();
+	const TileParam& getParam();
 
 	void draw(sf::RenderWindow* window);
 
-
+	// Возвращает true, если переданные координаты соответствуют позиции тайла.
+	bool operator== (Vector2f cor);
+	friend bool operator== (Vector2f cor, Tile t);
 
 };
 
