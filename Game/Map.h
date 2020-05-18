@@ -1,43 +1,58 @@
 // Map.h
 //Класс представляет игровую карту
 
-
-
+#pragma once
+//
 #ifndef MAP_H
 #define MAP_H
 
 
 #include "Tile.h"
-#include <map>
-#include "Manipulator.h"
 #include <string>
+#include <iostream>
+#include "Manipulator.h"
+
+extern Border& brd, * ptr_border;
+
 using namespace sf;
 
 
-enum Error ;
+enum Error;
 
 class Map
 {
-	Tile* tiles_mesh;
-	int wigth;
-	int height;
+	float time;
+	Tile *tiles_mesh, *sel_tile = nullptr;
+	int sel_element = 0;
+	int wigth, height;
 
 	void eventError();
 
-public:
-	Map();
-	Map(int w, int h);
-
-	void create(int w, int h);
-	void draw(RenderWindow* win);
-	void clear();
-
+	//Возвращает тайл по переданным координатам сетки
 	Tile& getTile(Vector2i pos);
 
-	Tile& selectTile (Vector2f cor);
-	Tile& selectGroupTile();
+public:
+	Map();
+	Map(int w, int h, std::string ter = "Empty");
+	void create(int w, int h, std::string ter = "Empty");
+
+	// Отрисовка всех эелементов карты
+	void draw(RenderWindow* win);
+	//Очистка карты
+	void clear();
 
 
+
+
+	//Выделение тайла(-ов) по координатам курсора
+	void selectTile (Vector2i cor);
+	void selectGroupTile();
+
+
+
+	//Управление выделяющей рамкой
+	void createBorder(sf::RenderWindow& win);
+	//void deleteBorder();
 	~Map();
 };
 

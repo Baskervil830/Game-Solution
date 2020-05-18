@@ -64,13 +64,14 @@ public:
 
 
 	//Возвращает тип местности тайла
-	std::string getTerrain();
+	std::string getTerrain() { return param.terrain; }
 
 	//Возвращает позицию тайла в сетке тайлов
-	sf::Vector2i getPosition();
+	const sf::Vector2i getPosition() { return pos; }
+	const sf::Vector2i getCenterPos() { return centre; }
 
 	//Возвращает параметры тайла
-	const TileParam& getParam();
+	const TileParam& getParam() { return param; }
 
 	void draw(sf::RenderWindow* window);
 
