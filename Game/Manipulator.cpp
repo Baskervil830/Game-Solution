@@ -28,6 +28,8 @@ void Border::setBorder(sf::RenderWindow& win)
 		brd.rectShape.setOutlineColor(sf::Color(255, 255, 255)); //цвет
 		brd.rectShape.setOutlineThickness(1); // толщина
 		brd.rectShape.setFillColor(sf::Color(0, 0, 0, 0));// убираем заливку прямоугольника
+
+
 		std::cout << "pos top: " << brd.getVertex().top << " pos left: " << brd.getVertex().left;                  // Отладочная |
 		std::cout << "pos width " << brd.getVertex().width << " pos heigh:" << brd.getVertex().height << std::endl;// информация |
 	}
@@ -41,4 +43,17 @@ void Border::setBorder(sf::RenderWindow& win)
 void Border::clearBorder()
 {
 	brd.ver.left = brd.ver.top = brd.ver.width = brd.ver.height = 0;
+}
+
+void Border::reverse()
+{
+	int temp;
+
+	temp = ver.left;
+	ver.left = ver.width;
+	ver.width = temp;
+
+	temp = ver.top;
+	ver.top = ver.height;
+	ver.height = temp;
 }

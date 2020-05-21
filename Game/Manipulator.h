@@ -23,6 +23,7 @@ class Border
 	void setEndPos(sf::Vector2i cor) { ver.width = static_cast<float>  (cor.x); ver.height = static_cast<float>  (cor.y);	 setSize(); }	//		рамки
 	void setSize() { size.x = ver.width - ver.left; size.y = ver.height - ver.top; }; // Задание размера рамки
 	static void clearBorder();
+
 public:
 	const sf::RectangleShape& winBorder = rectShape; //Ссылка на объект рамки
 
@@ -41,8 +42,11 @@ public:
 	sf::Vector2f getSize() { return size; };
 
 	Vertex getVertex() { return ver; }
+
 	static void setBorder(sf::RenderWindow& win);
+
 	bool isRetention() { return Retention; }
+	void reverse();
 
 };
 

@@ -21,15 +21,16 @@ enum Error;
 
 class Map
 {
-	float time;
 	Tile *tiles_mesh, *sel_tile = nullptr;
-	int sel_element = 0;
+	int sel_element;
 	int wigth, height;
 
 	void eventError();
 
 	//Возвращает тайл по переданным координатам сетки
 	Tile& getTile(Vector2i pos);
+	Map(Map&) {};
+	Map& operator= (Map&) {};
 
 public:
 	Map();
@@ -49,6 +50,7 @@ public:
 	void selectGroupTile();
 
 
+	void setTexture(std::string); 
 
 	//Управление выделяющей рамкой
 	void createBorder(sf::RenderWindow& win);

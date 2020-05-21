@@ -37,7 +37,6 @@ void Map::clear()
 
 
 ////////////////////////////////////////////////////////////////
-
   Tile& Map::getTile(Vector2i cor)
 {
 	int index = (cor.y * wigth + cor.x);
@@ -68,7 +67,10 @@ void Map::selectTile(Vector2i pos_cur)
 
 void Map::selectGroupTile()
 {
-	if (brd.isRetention()) {
+	if (brd.isRetention()) 
+	{
+		if (brd.getVertex().left > brd.getVertex().width) brd.reverse();
+
 		int left, top, right, lower; // Позиции граней рамки
 		left = static_cast<int> (brd.getVertex().left) / 100;
 		top = static_cast<int> (brd.getVertex().top) / 100;
@@ -120,6 +122,16 @@ void Map::selectGroupTile()
 			std::cout << "Element " << i << " :" << sel_tile[i].getParam().tile_num << std::endl; // Выод индекса выделенного тайла
 		}
 	}
+}
+
+
+
+////////////////////////////////////////////////////////////////
+void Map::setTexture(std::string ter)
+{
+	for (int i = 0; i < sel_element; )
+		if (sel_tile->setTerrain(ter))
+			std::cout << "Texture installing error\n";
 }
 
 
