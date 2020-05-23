@@ -38,8 +38,8 @@ void Console::start(Map& map, RenderWindow& win)
 	}
 	i_param[0] = atoi(str_param[0].c_str());
 	i_param[1] = atoi(str_param[1].c_str());
-	cout << command << " " << str_param[0] << " " << str_param[1] << std::endl	// Отладочная 
-		<< "\t" << i_param[0] << " " << i_param[1] << std::endl;				// информация
+	//cout << command << " " << str_param[0] << " " << str_param[1] << std::endl	// Отладочная 
+	//	<< "\t" << i_param[0] << " " << i_param[1] << std::endl;				// информация
 
 	run(map, win);
 }
@@ -55,16 +55,3 @@ void Console::run(Map& m, RenderWindow& win)
 	if (command == string("close")) win.close();
 
 };
-
-//system("cls");
-//std::cout << "Console active" << std::endl;
-//std::cin >> command;
-//while (nm_param < 2)
-//{
-//	std::cin >> str_param[nm_param];
-//	i_param[nm_param] = atoi(str_param[nm_param].c_str());
-//	if (!str_param[nm_param].empty()) ++nm_param; else break;
-//}
-
-//std::cout << command << " " << str_param[0] << " " << str_param[1] << std::endl
-//	<< "\t" << i_param[0] << " " << i_param[1] << std::endl;

@@ -52,33 +52,3 @@ public:
 
 
 #endif // !CONSOLE_H
-
-
-//
-//
-//void console(/*Map&  m*/)
-//{
-//
-//
-//
-//	char temp[31];
-//	string param[3];
-//	int p = 0, ct = 0;
-//
-//	cin.getline(temp, 31);
-//	while (p < 3)
-//	{
-//		if (temp[ct] == ' ') { ++p, ++ct; }
-//		if ((temp[ct] == '\0') || p >= 3) break;
-//		param[p] += temp[ct];
-//		++ct;
-//	}
-//
-//	int tp;
-//	tp = atoi(param[1].c_str());
-//	tp = atoi(param[0].c_str());
-//
-//
-//	for (int i = 0; i < 3; ++i)
-//		cout << param[i] << std::endl;
-//}

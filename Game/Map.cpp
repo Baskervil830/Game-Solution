@@ -55,11 +55,10 @@ void Map::selectTile(Vector2i pos_cur)
 	{
 		if (sel_element > 1) { delete[] sel_tile; sel_tile = nullptr; sel_element = 0; }
 		else if (sel_element == 1) { delete sel_tile; sel_tile = nullptr; sel_element = 0; }
-		else std::cout << "select " << sel_element << " element\n"; // Отладочная информация
 	}
-	std::cout << "get cor x: " << pos_cur.x << " get cor y: " << pos_cur.y << std::endl; //Отладочная информация
+	//std::cout << "get cor x: " << pos_cur.x << " get cor y: " << pos_cur.y << std::endl; //Отладочная информация
 	Vector2i pos_mesh(pos_cur.x / 100, pos_cur.y / 100); // Координаты окна переводим в координаты сетки
-	std::cout << "pos_mesh x: " << pos_mesh.x << " pos_mesh y: " << pos_mesh.y << std::endl; //Отладочная информация
+	//std::cout << "pos_mesh x: " << pos_mesh.x << " pos_mesh y: " << pos_mesh.y << std::endl; //Отладочная информация
 
 	int index = (pos_mesh.y * wigth + pos_mesh.x); // Получаем индекс запрашиваемой ячейки
 	std::cout << "index: " << index << std::endl; // Отладочная информация
@@ -82,7 +81,7 @@ void Map::selectGroupTile()
 		top = static_cast<int> (brd.getVertex().top) / 100;
 		right = static_cast<int> (brd.getVertex().width) / 100;
 		lower = static_cast<int> (brd.getVertex().height) / 100;
-		Vector2i tiles_cor[] // Определяем тайлы, которые попали в рамку
+		Vector2i tiles_cor[] // Определяем координаты тайлов с вершинами рамки
 		{
 			Vector2i(left, top), // 0 - левый верхний
 			Vector2i(right, top), // 1 - правый верхний
@@ -121,14 +120,13 @@ void Map::selectGroupTile()
 		//temp = nullptr;
 
 		//Отладочная информация
-		system("cls");
-		std::cout << "Total tiles: " << sel_element << "\n Selected tiles:\n";
-		for (int i = 0; i < sel_element; ++i)
-		{
-			std::cout << "Element " << i << " :" << sel_tile[i]->getParam().tile_num << std::endl; // Выод индекса выделенного тайла
-			//std::cout << "Element " << i << " :" << temp[i]->getParam().tile_num << std::endl; // Выод индекса выделенного тайла
+		//system("cls");
+		//std::cout << "Total tiles: " << sel_element << "\n Selected tiles:\n";
+		//for (int i = 0; i < sel_element; ++i)
+		//{
+		//	std::cout << "Element " << i << " :" << sel_tile[i]->getParam().tile_num << std::endl; // Выод индекса выделенного тайла
 
-		}
+		//}
 	}
 }
 
@@ -149,10 +147,6 @@ void Map::createBorder(sf::RenderWindow& win)
 	brd.setBorder(win);
 }
 
-//void Map::deleteBorder()
-//{
-//	Border::clearBorder(border);
-//}
 
 
 
