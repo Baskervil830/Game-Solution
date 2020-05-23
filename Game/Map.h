@@ -21,24 +21,27 @@ enum Error;
 
 class Map
 {
-	Tile *tiles_mesh, *sel_tile = nullptr;
+	Tile *tiles_mesh;
 	int sel_element;
-	int wigth, height;
+	int wigth, height, size = 0;
 
 	void eventError();
 
 	//Возвращает тайл по переданным координатам сетки
-	Tile& getTile(Vector2i pos);
 	Map(Map&) {};
 	Map& operator= (Map&) {};
 
 public:
+	Tile** sel_tile = nullptr;
+	Tile& getTile(Vector2i pos);
+
+
 	Map();
 	Map(int w, int h, std::string ter = "Empty");
 	void create(int w, int h, std::string ter = "Empty");
 
 	// Отрисовка всех эелементов карты
-	void draw(RenderWindow* win);
+	void draw(RenderWindow& win);
 	//Очистка карты
 	void clear();
 

@@ -30,12 +30,14 @@ void Border::setBorder(sf::RenderWindow& win)
 		brd.rectShape.setFillColor(sf::Color(0, 0, 0, 0));// убираем заливку прямоугольника
 
 
-		std::cout << "pos top: " << brd.getVertex().top << " pos left: " << brd.getVertex().left;                  // Отладочная |
-		std::cout << "pos width " << brd.getVertex().width << " pos heigh:" << brd.getVertex().height << std::endl;// информация |
+		//std::cout << "pos top: " << brd.getVertex().top << " pos left: " << brd.getVertex().left;                  // Отладочная |
+		//std::cout << "pos width " << brd.getVertex().width << " pos heigh:" << brd.getVertex().height << std::endl;// информация |
 	}
 	else
 	{
 		brd.clearBorder();
+		brd.setSize();
+		brd.rectShape.setSize(brd.getSize());
 		brd.Retention = false; // отпустили кнопку мыши
 	}
 };

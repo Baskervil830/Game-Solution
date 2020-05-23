@@ -73,7 +73,7 @@ public:
 	//Возвращает параметры тайла
 	const TileParam& getParam() { return param; }
 
-	void draw(sf::RenderWindow* window);
+	void draw(sf::RenderWindow& window);
 
 	// Возвращает true, если переданные координаты соответствуют позиции тайла.
 	bool operator== (Vector2f cor);
