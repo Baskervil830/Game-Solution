@@ -2,7 +2,7 @@
 
 
 #include "Tile.h"
-
+#include <iostream>>
 
 
 Tile::Tile()
@@ -42,7 +42,7 @@ bool Tile::setParam()
 
 bool Tile::setTerrain(std::string terr)
 {
-	if (!l1_tileTexture.loadFromFile("Texture/" + terr + ".png")) return false;
+	if (!l1_tileTexture.loadFromFile("Texture/" + terr + ".png")) { std::cout << "Erorr loading file" << std::endl; return false; }	
 	l1_tileSprite.setTexture(l1_tileTexture);
 
 	l1_tileSprite.setPosition(static_cast <float> (pos.x * size.wigth), static_cast <float> (pos.y * size.height));
@@ -51,9 +51,9 @@ bool Tile::setTerrain(std::string terr)
 
 
 
-void Tile::draw(sf::RenderWindow* win)
+void Tile::draw(sf::RenderWindow& win)
 {
-	win->draw(l1_tileSprite);
+	win.draw(l1_tileSprite);
 }
 
 bool Tile::operator== (sf::Vector2f cor)
